@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix | Mi mundo</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand logo" href="#inicio">NETFLIX</a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tendencias">Tendencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#disney">Películas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#series">Series</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lista">Mi lista</a></li>
+                </ul>
+
+                <div class="d-flex gap-2 align-items-center">
+                    <input type="text" id="buscador"
+                        class="form-control buscador"
+                        placeholder="Buscar títulos...">
+
+                    <button class="btn btn-outline-light"
+                        onclick="buscarPeliculas()">⌕</button>
+
+                    <span class="perfil">L</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BANNER PRINCIPAL -->
+    <header class="banner" id="inicio">
+        <div class="banner-contenido">
+            <p class="text-uppercase text-warning fw-bold">
+                Una aventura extraordinaria
+            </p>
+
+            <h1>EL EXTRAÑO<br>MUNDO DE JACK</h1>
+
+            <p class="descripcion">
+                Jack Skellington descubre un mundo completamente diferente
+                al suyo en esta fantástica aventura entre Halloween y Navidad.
+            </p>
+
+            <button class="btn btn-light fw-bold me-2"
+                onclick="mostrarMensaje('El extraño mundo de Jack')">
+                ▶ Reproducir
+            </button>
+
+            <button class="btn btn-secondary"
+                onclick="mostrarInfo('El extraño mundo de Jack',
+                'Una aventura fantástica llena de magia, Halloween y Navidad.')">
+                ⓘ Más información
+            </button>
+        </div>
+    </header>
+
+    <!-- CARRUSEL 1 -->
+    <main class="container-fluid px-4">
+
+        <section class="seccion" id="tendencias">
+            <h2>Tendencias ahora</h2>
+
+            <div class="carrusel">
+                <button class="flecha izquierda"
+                    onclick="moverCarrusel('carrusel1', -1)">❮</button>
+
+                <div class="peliculas" id="carrusel1">
+
+                    <article class="pelicula">
+                        <img src="imagenes/jack.jpg"
+                            alt="El extraño mundo de Jack">
+                        <h3>El extraño mundo de Jack</h3>
+                        <p>Fantasía · Animación</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/coraline.jpg"
+                            alt="Coraline">
+                        <h3>Coraline</h3>
+                        <p>Misterio · Fantasía</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/elcadavernovia.jpg"
+                            alt="El cadáver de la novia">
+                        <h3>El cadáver de la novia</h3>
+                        <p>Fantasía · Animación</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/reyleon.jpg"
+                            alt="El Rey León">
+                        <h3>El Rey León</h3>
+                        <p>Aventura · Familiar</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/librovida.jpg"
+                            alt="El libro de la vida">
+                        <h3>El libro de la vida</h3>
+                        <p>Fantasía · Música</p>
+                    </article>
+
+                </div>
+
+                <button class="flecha derecha"
+                    onclick="moverCarrusel('carrusel1', 1)">❯</button>
+            </div>
+        </section>
+
+        <!-- CARRUSEL 2 -->
+        <section class="seccion" id="disney">
+            <h2>Disney y princesas</h2>
+
+            <div class="carrusel">
+                <button class="flecha izquierda"
+                    onclick="moverCarrusel('carrusel2', -1)">❮</button>
+
+                <div class="peliculas" id="carrusel2">
+
+                    <article class="pelicula">
+                        <img src="imagenes/mulan.jpg"
+                            alt="Mulán">
+                        <h3>Mulán</h3>
+                        <p>Aventura · Disney</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/lasirenita.jpg"
+                            alt="La Sirenita">
+                        <h3>La Sirenita</h3>
+                        <p>Fantasía · Musical</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/bellaybestia.jpg"
+                            alt="La Bella y la Bestia">
+                        <h3>La Bella y la Bestia</h3>
+                        <p>Romance · Fantasía</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/cenicienta.jpg"
+                            alt="La Cenicienta">
+                        <h3>La Cenicienta</h3>
+                        <p>Clásico · Disney</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/hercules.jpg"
+                            alt="Hércules">
+                        <h3>Hércules</h3>
+                        <p>Mitología · Aventura</p>
+                    </article>
+
+                </div>
+
+                <button class="flecha derecha"
+                    onclick="moverCarrusel('carrusel2', 1)">❯</button>
+            </div>
+        </section>
+
+        <!-- CARRUSEL 3 -->
+        <section class="seccion" id="series">
+            <h2>Series populares</h2>
+
+            <div class="carrusel">
+                <button class="flecha izquierda"
+                    onclick="moverCarrusel('carrusel3', -1)">❮</button>
+
+                <div class="peliculas" id="carrusel3">
+
+                    <article class="pelicula">
+                        <img src="imagenes/ladybug.jpg"
+                            alt="Miraculous Ladybug">
+                        <h3>Miraculous: Ladybug</h3>
+                        <p>Acción · Animación</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/peppa.jpg"
+                            alt="Peppa Pig">
+                        <h3>Peppa Pig</h3>
+                        <p>Infantil · Comedia</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/sofia.jpg"
+                            alt="La Princesita Sofía">
+                        <h3>La Princesita Sofía</h3>
+                        <p>Fantasía · Infantil</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/mylittlepony.jpg"
+                            alt="My Little Pony">
+                        <h3>My Little Pony</h3>
+                        <p>Amistad · Fantasía</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/gravityfallls.jpg"
+                            alt="Gravity Falls">
+                        <h3>Gravity Falls</h3>
+                        <p>Misterio · Aventura</p>
+                    </article>
+
+                </div>
+
+                <button class="flecha derecha"
+                    onclick="moverCarrusel('carrusel3', 1)">❯</button>
+            </div>
+        </section>
+
+        <!-- CARRUSEL 4 -->
+        <section class="seccion" id="lista">
+            <h2>Mi lista</h2>
+
+            <div class="carrusel">
+                <button class="flecha izquierda"
+                    onclick="moverCarrusel('carrusel4', -1)">❮</button>
+
+                <div class="peliculas" id="carrusel4">
+
+                    <article class="pelicula">
+                        <img src="imagenes/jack.jpg"
+                            alt="El extraño mundo de Jack">
+                        <h3>El extraño mundo de Jack</h3>
+                        <p>Mi selección</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/mulan.jpg"
+                            alt="Mulán">
+                        <h3>Mulán</h3>
+                        <p>Mi selección</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="imagenes/ladybug.jpg"
+                            alt="Miraculous Ladybug">
+                        <h3>Miraculous: Ladybug</h3>
+                        <p>Mi selección</p>
+                    </article>
+
+                    <article class="pelicula">
+                        <img src="https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg"
+                            alt="El viaje de Chihiro">
+                        <h3>El viaje de Chihiro</h3>
+                        <p>Fantasía · Aventura</p>
+                    </article>
+<!-- Tinker Bell: El secreto de las hadas -->
+<article class="pelicula">
+    <img src="imagenes/tinkerbell.jpg"
+         alt="Tinker Bell: El secreto de las hadas">
+
+    <h3>Tinker Bell: El secreto de las hadas</h3>
+    <p>Fantasía · Aventura</p>
+</article>
+                </div>
+
+                <button class="flecha derecha"
+                    onclick="moverCarrusel('carrusel4', 1)">❯</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="container py-5">
+        <div class="row">
+            <div class="col-md-3"><a href="#inicio">Audio y subtítulos</a></div>
+            <div class="col-md-3"><a href="#inicio">Centro de ayuda</a></div>
+            <div class="col-md-3"><a href="#inicio">Privacidad</a></div>
+            <div class="col-md-3"><a href="#inicio">Avisos legales</a></div>
+        </div>
+
+        <p class="mt-4">Práctica de Desarrollo de Aplicaciones Web</p>
+        <p>Elaborado por: Tu nombre aquí © 2026</p>
+    </footer>
+
+    <!-- VENTANA DE INFORMACIÓN -->
+    <div class="modal fade" id="modalInfo" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloModal"></h5>
+                    <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="textoModal"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"
+                        data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

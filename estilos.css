@@ -1,0 +1,438 @@
+/* CONFIGURACIÓN GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    background-color: #141414;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+    background: linear-gradient(to bottom, #000, transparent);
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: #e50914 !important;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: #e5e5e5 !important;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    color: #b3b3b3 !important;
+}
+
+.perfil {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #e50914, #7c1d7a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.buscador {
+    width: 170px;
+    background-color: #222;
+    border: 1px solid #777;
+    color: white;
+}
+
+.buscador::placeholder {
+    color: #bbb;
+}
+
+.buscador:focus {
+    background-color: #222;
+    color: white;
+}
+
+/* BANNER PRINCIPAL CON IMAGEN */
+.banner {
+    height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(20, 20, 20, 0.95) 0%,
+            rgba(20, 20, 20, 0.55) 48%,
+            rgba(20, 20, 20, 0.10) 100%
+        ),
+        linear-gradient(
+            to top,
+            #141414 0%,
+            transparent 45%
+        ),
+        url("imagenes/fondo-jack.jpg");
+
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+}
+
+.banner-contenido {
+    padding: 80px 5% 0;
+    max-width: 750px;
+    position: relative;
+    z-index: 2;
+}
+
+.banner h1 {
+    font-size: clamp(40px, 6vw, 75px);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 8px #000;
+}
+
+.descripcion {
+    max-width: 550px;
+    font-size: 17px;
+    line-height: 1.6;
+    text-shadow: 1px 2px 5px black;
+}
+
+.banner .btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+/* SECCIONES */
+.seccion {
+    margin-top: 20px;
+    margin-bottom: 35px;
+    scroll-margin-top: 90px;
+}
+
+.seccion h2 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* CARRUSEL HORIZONTAL */
+.carrusel {
+    position: relative;
+}
+
+.peliculas {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 10px 3px 20px;
+}
+
+.peliculas::-webkit-scrollbar {
+    display: none;
+}
+
+/* TARJETAS DE PELÍCULAS */
+.pelicula {
+    flex: 0 0 210px;
+    min-width: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.pelicula:hover {
+    transform: scale(1.07);
+    z-index: 5;
+}
+
+.pelicula img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: #292929;
+    box-shadow: 0 3px 10px #0008;
+    transition: box-shadow 0.3s ease;
+}
+
+.pelicula:hover img {
+    box-shadow: 0 8px 25px #000;
+}
+
+.pelicula h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.pelicula p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* FLECHAS */
+.flecha {
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    width: 45px;
+    border: none;
+    color: white;
+    background-color: #0009;
+    font-size: 30px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.carrusel:hover .flecha {
+    opacity: 1;
+}
+
+.flecha:hover {
+    background-color: #000d;
+}
+
+.izquierda {
+    left: 0;
+}
+
+.derecha {
+    right: 0;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    color: #808080;
+    font-size: 13px;
+}
+
+footer a {
+    color: #808080;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* VENTANA MODAL */
+.modal-content {
+    border: 1px solid #444;
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 768px) {
+    .banner {
+        height: 560px;
+    }
+
+    .banner h1 {
+        font-size: 43px;
+    }
+
+    .descripcion {
+        font-size: 15px;
+    }
+
+    .pelicula {
+        flex-basis: 155px;
+    }
+
+    .pelicula img {
+        height: 230px;
+    }
+
+    .seccion h2 {
+        font-size: 20px;
+    }
+
+    .flecha {
+        width: 30px;
+        opacity: 1;
+    }
+
+    .buscador {
+        width: 140px;
+    }   
+}
+ /* PANTALLA DE DETALLES ESTILO NETFLIX */
+.modal-pelicula {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.88);
+    display: none;
+    overflow-y: auto;
+    padding: 30px 15px;
+}
+
+.modal-pelicula.activo {
+    display: block;
+}
+
+.detalle-contenido {
+    position: relative;
+    max-width: 950px;
+    min-height: 650px;
+    margin: auto;
+    background: #181818;
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px #000;
+}
+
+.detalle-fondo {
+    min-height: 440px;
+    display: flex;
+    align-items: flex-end;
+    padding: 45px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.detalle-fondo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        #181818 0%,
+        rgba(24,24,24,.65) 45%,
+        rgba(0,0,0,.08) 100%
+    );
+}
+
+.detalle-texto {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.detalle-texto h2 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.detalle-descripcion {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.detalle-botones {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.detalle-botones button {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 22px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-reproducir {
+    background: white;
+    color: black;
+}
+
+.btn-mi-lista,
+.btn-cerrar {
+    background: #454545;
+    color: white;
+}
+
+.btn-cerrar {
+    position: absolute;
+    z-index: 5;
+    right: 18px;
+    top: 18px;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.detalle-info {
+    padding: 0 35px 30px;
+    color: #ddd;
+}
+
+.detalle-info h3 {
+    color: white;
+    margin: 18px 0;
+}
+
+.detalle-similares {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.similar-item {
+    cursor: pointer;
+    background: #292929;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform .2s;
+}
+
+.similar-item:hover {
+    transform: scale(1.05);
+}
+
+.similar-item img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.similar-item p {
+    font-size: 12px;
+    padding: 8px;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .detalle-fondo {
+        min-height: 400px;
+        padding: 25px;
+    }
+
+    .detalle-info {
+        padding: 0 20px 25px;
+    }
+
+    .detalle-similares {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
